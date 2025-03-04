@@ -13,7 +13,7 @@ root.render(
  <Container className="mt-3">
  <Row>
 
-   <Mascotas />
+   <App />
  </Row>
  </Container>
 );
