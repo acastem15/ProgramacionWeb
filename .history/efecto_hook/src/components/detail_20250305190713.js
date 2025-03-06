@@ -3,16 +3,15 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Col from "react-bootstrap/Col";
-
-import { useParams } from "react-router-dom";
 const { useEffect, useState } = require("react");
 
+import { useParams } from "react-router-dom";
 export default function Detail() {
  const params = useParams();
   
   const [mascota, setMascota] = useState({
-    id: params.mascotaId,
-    nombre: "Mascota no encontrada",
+    id: -1,
+    nombre: "null",
     especie: "null",
     raza: "null",
     foto: "null",
@@ -26,7 +25,7 @@ export default function Detail() {
        .then((data) => data.json())
        .then((data) => {
           const mascota = data.find((pMascota)=> pMascota["id"]==params.mascotaId)
-          if(mascota) setMascota(mascota);
+          setMascota(data);
        });
    }, []);
  return (

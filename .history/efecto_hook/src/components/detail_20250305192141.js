@@ -11,7 +11,7 @@ export default function Detail() {
  const params = useParams();
   
   const [mascota, setMascota] = useState({
-    id: params.mascotaId,
+    id: params.id,
     nombre: "Mascota no encontrada",
     especie: "null",
     raza: "null",

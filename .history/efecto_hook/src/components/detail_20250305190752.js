@@ -11,8 +11,8 @@ export default function Detail() {
  const params = useParams();
   
   const [mascota, setMascota] = useState({
-    id: params.mascotaId,
-    nombre: "Mascota no encontrada",
+    id: -1,
+    nombre: "null",
     especie: "null",
     raza: "null",
     foto: "null",
@@ -26,7 +26,7 @@ export default function Detail() {
        .then((data) => data.json())
        .then((data) => {
           const mascota = data.find((pMascota)=> pMascota["id"]==params.mascotaId)
-          if(mascota) setMascota(mascota);
+          setMascota(data);
        });
    }, []);
  return (
